@@ -24,3 +24,7 @@ promise
 .then(function(){
     console.log('success 4');
 })
+// after  erroor then block run and  previous then blocks not 
+
+// // Error1
+// success 4
