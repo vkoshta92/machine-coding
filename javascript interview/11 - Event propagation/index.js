@@ -1,108 +1,108 @@
-// EVENT PROPAGATION
+// // EVENT PROPAGATION
 
-import "./styles.css";
+// import "./styles.css";
 
-// Question 1 : Event Bubbling
+// // Question 1 : Event Bubbling
 
-const div = document.querySelector("div");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
 
-div.addEventListener("click", function (event) {
-  alert("div");
-});
+// div.addEventListener("click", function (event) {
+//   alert("div");
+// });
 
-form.addEventListener("click", function (event) {
-  alert("form");
-});
+// form.addEventListener("click", function (event) {
+//   alert("form");
+// });
 
-button.addEventListener("click", function (event) {
-  alert("button");
-});
-
-
-// Question 2 : event.target vs this.target vs event.currentTarget
-
-const div = document.querySelector("div");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
-
-function func(event) {
-  alert("currentTarget = " + event.currentTarget.tagName + ", target = " + event.target.tagName + ", this=" + this.tagName);
-}
-
-div.addEventListener("click", func);
-form.addEventListener("click", func);
-button.addEventListener("click", func);
+// button.addEventListener("click", function (event) {
+//   alert("button");
+// });
 
 
-// Question 3 : Event Capturing
+// // Question 2 : event.target vs this.target vs event.currentTarget
 
-const div = document.querySelector("div");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
 
-div.addEventListener("click", function (event) {
-  alert("div");
-},{capture: true});
+// function func(event) {
+//   alert("currentTarget = " + event.currentTarget.tagName + ", target = " + event.target.tagName + ", this=" + this.tagName);
+// }
 
-form.addEventListener("click", function (event) {
-  alert("form");
-},{capture: true});
-
-button.addEventListener("click", function (event) {
-  alert("button");
-},{capture: true});
+// div.addEventListener("click", func);
+// form.addEventListener("click", func);
+// button.addEventListener("click", func);
 
 
-// Question 4 : Stop Propagation
+// // Question 3 : Event Capturing
 
-const div = document.querySelector("div");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
 
-div.addEventListener("click", function (event) {
-  alert("div");
-});
+// div.addEventListener("click", function (event) {
+//   alert("div");
+// },{capture: true});
 
-form.addEventListener("click", function (event) {
-    event.stopPropagation();
-  alert("form");
-});
+// form.addEventListener("click", function (event) {
+//   alert("form");
+// },{capture: true});
 
-button.addEventListener("click", function (event) {
-  alert("button");
-});
+// button.addEventListener("click", function (event) {
+//   alert("button");
+// },{capture: true});
 
 
-// Question 5 : Event Delegation
+// // Question 4 : Stop Propagation
 
-document.querySelector(".products").addEventListener("click", (event) => {
-    console.log(event.target.className);
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
+
+// div.addEventListener("click", function (event) {
+//   alert("div");
+// });
+
+// form.addEventListener("click", function (event) {
+//     event.stopPropagation();
+//   alert("form");
+// });
+
+// button.addEventListener("click", function (event) {
+//   alert("button");
+// });
+
+
+// // Question 5 : Event Delegation
+
+// document.querySelector(".products").addEventListener("click", (event) => {
+//     console.log(event.target.className);
   
-    if (event.target.tagName === "SPAN") {
-      window.location.href += "/" + event.target.className;
-    }
-});
+//     if (event.target.tagName === "SPAN") {
+//       window.location.href += "/" + event.target.className;
+//     }
+// });
 
 
-// Question 6 : What is the Output?
+// // Question 6 : What is the Output?
 
-const div = document.querySelector("div");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
 
-div.addEventListener("click", function (event) {
-  alert("div");
-});
+// div.addEventListener("click", function (event) {
+//   alert("div");
+// });
 
-form.addEventListener("click", function (event) {
-  alert("form");
-}, {capture: true});
+// form.addEventListener("click", function (event) {
+//   alert("form");
+// }, {capture: true});
 
-button.addEventListener("click", function (event) {
-  alert("button");
-});
+// button.addEventListener("click", function (event) {
+//   alert("button");
+// });
 
 
 // Question 7 : Create a Modal which closes by clicking on negative space
@@ -119,5 +119,6 @@ function toggleModal(toggle) {
 }
 
 container.addEventListener("click", (e) => {
+  console.log(e.target.className)
   if (e.target.className === "modalContainer") toggleModal(false);
 });
